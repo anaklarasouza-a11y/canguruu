@@ -1,0 +1,291 @@
+<link rel="stylesheet" href="style.css">
+/* ==========================================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+:root {
+    /* Paleta de Cores Inspirada no Outback e Oceano Australiano */
+    --primary: #ff6b35;          /* Laranja Outback */
+    --primary-hover: #e05a2b;    /* Laranja Escuro */
+    --secondary: #004e89;        /* Azul Oceano */
+    --accent: #f7c59f;           /* Areia Dourada */
+    --bg-dark: #0f172a;          /* Azul Noite */
+    --bg-card: rgba(255, 255, 255, 0.07); /* Vidro Transparente */
+    --text-main: #f8fafc;        /* Branco Suave */
+    --text-muted: #94a3b8;       /* Cinza Azulado */
+    --correct: #4ade80;         /* Verde Sucesso */
+    --incorrect: #f87171;       /* Vermelho Erro */
+    
+    /* Fontes e Transições */
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: radial-gradient(circle at top right, #1e293b, var(--bg-dark));
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO (HEADER) COM PARALLAX VISUAL
+   ========================================================================== */
+header {
+    position: relative;
+    text-align: center;
+    padding: 100px 20px 80px;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, var(--bg-dark) 100%),
+                url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    border-bottom: 3px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--accent);
+    max-width: 650px;
+    margin: 0 auto;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   3. ESTRUTURA E CARTOES (GLASSMORPHISM)
+   ========================================================================== */
+.container {
+    max-width: 1100px;
+    margin: 50px auto 0;
+    padding: 0 24px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--primary);
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+/* Estilo Glassmorphism para os Cartões */
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 107, 53, 0.4);
+}
+
+.card h3 {
+    color: var(--accent);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+}
+
+/* ==========================================================================
+   4. GALERIA INTERATIVA
+   ========================================================================== */
+.gallery-card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-info {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* ==========================================================================
+   5. SEÇÃO DO QUIZ / JOGO
+   ========================================================================== */
+.quiz-container {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    padding: 35px;
+    margin-bottom: 60px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-container h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    margin: 12px 0;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: var(--text-main);
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.quiz-option:hover {
+    background: rgba(255, 107, 53, 0.2);
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+.quiz-feedback {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    min-height: 28px;
+    transition: opacity var(--transition-fast);
+}
+
+/* ==========================================================================
+   6. CAIXA DE GÍRIAS & BOTÕES
+   ========================================================================== */
+.slang-box {
+    text-align: center;
+    background: linear-gradient(135deg, var(--secondary) 0%, #002845 100%);
+    padding: 40px 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    margin-bottom: 60px;
+}
+
+#slang-display {
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin: 25px 0;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity var(--transition-fast);
+}
+
+.btn {
+    background: var(--primary);
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    transition: all var(--transition-fast);
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   7. RODAPÉ (FOOTER)
+   ========================================================================== */
+footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE (MOBILE FIRST)
+   ========================================================================== */
+@media (max-width: 600px) {
+    header {
+        padding: 60px 15px 50px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .quiz-container {
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
