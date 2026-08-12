@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando a Austrália 🇦🇺 | Guia Interativo</title>
+    <style>
+        :root {
+            --primary: #ff6b35;
+            --secondary: #004e89;
+            --accent: #f7c59f;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --text: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1600&q=80') center/cover;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cartões e Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Galeria */
+        .gallery-card {
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Jogo / Quiz */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .quiz-option {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 107, 53, 0.3);
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Gerador de Gírias */
+        .slang-box {
+            text-align: center;
+            background: linear-gradient(135deg, var(--secondary), #002845);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #e05a2b;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🦘 Explorando a Austrália</h1>
+        <p>Descubra os segredos, fauna e curiosidades do continente austral!</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Seção de Curiosidades Rápida -->
+        <h2 class="section-title">⚡ Fatos Impressionantes</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🌊 +10.000 Praias</h3>
+                <p>Se você visitasse uma praia por dia na Austrália, levaria mais de <strong>27 anos</strong> para conhecer todas!</p>
+            </div>
+            <div class="card">
+                <h3>🦘 Cangurus x Pessoas</h3>
+                <p>Existem cerca de 50 milhões de cangurus no país para apenas 26 milhões de habitantes!</p>
+            </div>
+            <div class="card">
+                <h3>❄️ Alpes de Neve</h3>
+                <p>Os Alpes Australianos recebem mais neve por ano do que toda a Suíça durante o inverno!</p>
+            </div>
+        </div>
+
+        <!-- Galeria Interativa -->
+        <h2 class="section-title">📸 Fauna Exclusiva</h2>
+        <div class="grid">
+            <div class="card gallery-card">
+                <img src="https://images.unsplash.com/photo-1565151443833-29bf2df5dd85?auto=format&fit=crop&w=600&q=80" alt="Quokka">
+                <div class="gallery-info">
+                    <h3>O Quokka</h3>
+                    <p>Conhecido como o animal mais feliz do mundo por conta de seu "sorriso" permanente!</p>
+                </div>
+            </div>
+            <div class="card gallery-card">
+                <img src="https://images.unsplash.com/photo-1579489225078-27978a2ed375?auto=format&fit=crop&w=600&q=80" alt="Coala">
+                <div class="gallery-info">
+                    <h3>O Coala</h3>
+                    <p>Dorme até 20 horas por dia e alimenta-se quase exclusivamente de folhas de eucalipto.</p>
+                </div>
+            </div>
+            <div class="card gallery-card">
+                <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=600&q=80" alt="Barreira de Corais">
+                <div class="gallery-info">
+                    <h3>Grande Barreira</h3>
+                    <p>O maior estrutura viva do planeta, tão grande que pode ser vista do espaço!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Jogos: Quiz -->
+        <h2 class="section-title">🎮 Jogo de Quiz: Desafio Aussie!</h2>
+        <div class="quiz-container">
+            <h3 id="quiz-question">Qual é a verdadeira capital da Austrália?</h3>
+            <div id="quiz-options">
+                <button class="quiz-option" onclick="checkAnswer(0)">A) Sydney</button>
+                <button class="quiz-option" onclick="checkAnswer(1)">B) Melbourne</button>
+                <button class="quiz-option" onclick="checkAnswer(2)">C) Camberra</button>
+            </div>
+            <div id="quiz-feedback" class="quiz-feedback"></div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #94a3b8;">Pontuação: <span id="score">0</span></p>
+        </div>
+
+        <!-- Gerador de Gírias Interativo -->
+        <div class="slang-box">
+            <h2>🗣️ Tradutor de Gíria Aussie</h2>
+            <p style="margin-top: 10px;">Aprenda a falar como um verdadeiro australiano!</p>
+            <h3 id="slang-display" style="font-size: 1.8rem; color: var(--accent); margin: 20px 0;">"G'day" = Olá!</h3>
+            <button class="btn" onclick="nextSlang()">Gerar Nova Gíria</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Desenvolvido para o GitHub Pages | 🇦🇺 Uma aventura pela Austrália</p>
+    </footer>
+
+    <script>
+        // Lógica do Quiz
+        const questions = [
+            {
+                q: "Qual é a verdadeira capital da Austrália?",
+                options: ["Sydney", "Melbourne", "Camberra"],
+                correct: 2,
+                explanation: "Camberra foi construída do zero para resolver a disputa de capital entre Sydney e Melbourne!"
+            },
+            {
+                q: "Qual destes animais NÃO é nativo da Austrália?",
+                options: ["Ornitorrinco", "Tigre", "Diabo da Tasmânia"],
+                correct: 1,
+                explanation: "Tigres são nativos da Ásia, não da Austrália!"
+            },
+            {
+                q: "Qual a porcentagem aproximada de espécies animais exclusivas da Austrália?",
+                options: ["50%", "80%", "30%"],
+                correct: 1,
+                explanation: "Cerca de 80% das plantas e animais de lá só existem na Austrália!"
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const q = questions[currentQ];
+            document.getElementById("quiz-question").innerText = q.q;
+            const optionsDiv = document.getElementById("quiz-options");
+            optionsDiv.innerHTML = "";
+            
+            q.options.forEach((opt, idx) => {
+                optionsDiv.innerHTML += `<button class="quiz-option" onclick="checkAnswer(${idx})">${opt}</button>`;
+            });
+            document.getElementById("quiz-feedback").innerText = "";
+        }
+
+        function checkAnswer(selected) {
+            const q = questions[currentQ];
+            const feedback = document.getElementById("quiz-feedback");
+            
+            if (selected === q.correct) {
+                score += 10;
+                feedback.style.color = "#4ade80";
+                feedback.innerText = "✨ Correto! " + q.explanation;
+            } else {
+                feedback.style.color = "#f87171";
+                feedback.innerText = "❌ Ops! " + q.explanation;
+            }
+            
+            document.getElementById("score").innerText = score;
+            
+            setTimeout(() => {
+                currentQ = (currentQ + 1) % questions.length;
+                loadQuestion();
+            }, 3000);
+        }
+
+        // Lógica das Gírias
+        const slangs = [
+            { term: "G'day", meaning: "Olá! / Bom dia!" },
+            { term: "Barbie", meaning: "Churrasco (Barbecue)" },
+            { term: "Mates", meaning: "Amigos / Parceiros" },
+            { term: "Brekky", meaning: "Café da manhã (Breakfast)" },
+            { term: "No worries", meaning: "Sem problemas! / De nada!" },
+            { term: "Arvo", meaning: "Tarde (Afternoon)" }
+        ];
+
+        function nextSlang() {
+            const random = slangs[Math.floor(Math.random() * slangs.length)];
+            document.getElementById("slang-display").innerText = `"${random.term}" = ${random.meaning}`;
+        }
+
+        // Inicializar
+        loadQuestion();
+    </script>
+</body>
+</html>
